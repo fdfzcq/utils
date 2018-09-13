@@ -10,7 +10,7 @@ defmodule Utils.Finder do
   defp find_all_ex(relative_path) do
     files = 'ls -d '
       |> Kernel.++(String.to_charlist(relative_path))
-      |> Kernel.++('**/*.ex')
+      |> Kernel.++('**/**/*.ex')
       |> :os.cmd()
       |> :erlang.list_to_binary()
       |> parse_file_list()
